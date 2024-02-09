@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Välj grupp och verktyg</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Välj grupp och verktyg</h1>
+    
+    <!-- Gruppval formulär -->
+    <form id="selectGroupForm">
+        <label for="toolGroup">Välj en grupp:</label>
+        <select id="toolGroup" required>
+            <!-- Options kommer att fyllas med grupperna från databasen -->
+        </select>
+        <button type="submit">Nästa</button>
+    </form>
+
+    <!-- Verktygsval formulär -->
+    <form id="selectToolForm" style="display: none;">
+        <label for="tool">Välj ett verktyg:</label>
+        <select id="tool" required>
+            <!-- Options kommer att fyllas med verktygen från databasen baserat på vald grupp -->
+        </select>
+
+        <!-- Lägg till radval här -->
+        <label for="selectedRow">Välj rad:</label>
+        <select id="selectedRow" required>
+            <!-- Alternativ från 1 till 24 -->
+            <!-- Du kan generera detta med JavaScript om du vill -->
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <!-- ... lägg till resten av alternativen ... -->
+            <option value="24">24</option>
+        </select>
+
+        <button type="submit">Lägg till</button>
+    </form>
+
+    <script src="create_tool.js"></script>
+</body>
+</html>

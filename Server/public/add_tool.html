@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lägg till nytt verktyg</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Lägg till verktyg</h1>
+    <form id="addToolForm">
+        <label for="toolType">Typ:</label>
+        <select id="toolType" required>
+            <!-- Options kommer att fyllas med grupperna från databasen -->
+        </select>
+
+        <label for="toolName">Namn:</label>
+        <input type="text" id="toolName" required>
+
+        <label for="toolBrand">MÄRKE:</label>
+        <input type="text" id="toolBrand" required>
+
+        <label for="toolLastUsed">SENAST:</label>
+        <input type="text" id="toolLastUsed" required>
+
+        <label for="toolDiameter">⌀:</label>
+        <input type="text" id="toolDiameter" required>
+
+        <label for="toolCR">C/R/°:</label>
+        <input type="text" id="toolCR" required>
+
+        <label for="toolNumCutters">ANTAL SKÄR:</label>
+        <input type="text" id="toolNumCutters" required>
+
+        <label for="toolAPMX">APMX:</label>
+        <input type="text" id="toolAPMX" required>
+
+        <label for="toolRMPX">RMPX:</label>
+        <input type="text" id="toolRMPX" required>
+
+        <label for="toolComment">KOMMENTAR:</label>
+        <textarea id="toolComment" required></textarea>
+
+        <button type="submit">Lägg till</button>
+    </form>
+
+    <script src="add_tool.js"></script>
+</body>
+</html>
