@@ -111,6 +111,45 @@ app.post('/api/tools', async (req, res) => {
     }
 });
 
+
+// API-endpunkt för att lägga till verktyg i tabellen
+app.post('/api/add-tool', async (req, res) => {
+    try {
+        const { group, tool, row } = req.body;
+
+        // Hämta verktygsdata baserat på det valda verktyget
+        const selectedTool = await Tool.findById(tool);
+
+        // Hitta rätt rad i tabellen baserat på det valda radnumret
+        const selectedRow = parseInt(row);
+
+        // Uppdatera den valda raden med verktygsdatan
+        const toolData = [
+            selectedTool.name,
+            selectedTool.brand,
+            selectedTool.lastUsed,
+            selectedTool.diameter,
+            selectedTool.cr,
+            selectedTool.numCutters,
+            selectedTool.apmx,
+            selectedTool.rmpx,
+            selectedTool.comment
+        ];
+
+        const updatedRow = await Tool.findOneAndUpdate(
+            { _id: group }, 
+            { $set: { [`tool${selectedRow}`]: toolData } }, 
+            { new: true }
+        );
+
+        res.status(201).json({ success: true, message: 'Verktyget har lagts till i tabellen.' });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+});
+
+
+
 // Starta servern
 app.listen(PORT, () => {
     console.log(`Server lyssnar på port ${PORT}`);

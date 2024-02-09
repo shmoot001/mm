@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var toolGroupSelect = document.getElementById("toolGroup");
     var toolSelect = document.getElementById("tool");
     var selectedRowSelect = document.getElementById("selectedRow");
-    
+
     // Hämta grupperna från databasen vid sidbelastning
     updateGroupOptions();
 
@@ -14,8 +14,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Hämta den valda gruppen
         var selectedGroup = toolGroupSelect.value;
-
-        console.log("Vald grupp:", selectedGroup);
 
         // Uppdatera verktygsalternativen baserat på den valda gruppen
         updateToolOptions(selectedGroup);
@@ -32,14 +30,32 @@ document.addEventListener("DOMContentLoaded", function() {
         // Hämta den valda gruppen och verktyget
         var selectedGroup = toolGroupSelect.value;
         var selectedTool = toolSelect.value;
+        var selectedRow = selectedRowSelect.value;
 
-        console.log("Vald grupp:", selectedGroup);
-        console.log("Valt verktyg:", selectedTool);
+        // Skicka tillbaka vald grupp, verktyg och radnummer till startsidan
+        var data = {
+            group: selectedGroup,
+            tool: selectedTool,
+            row: selectedRow
+        };
 
-        // Gör något med de valda värdena, till exempel skicka tillbaka till startsidan
-
-        // Till exempel, navigera till startsidan
-        window.location.href = 'index.html';
+        // Skicka data tillbaka till startsidan och uppdatera tabellen
+        fetch('/api/add-tool', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Verktyget har lagts till i tabellen.');
+                window.location.href = 'index.html'; // Navigera tillbaka till startsidan
+            } else {
+                alert('Ett fel uppstod vid läggning av verktyget i tabellen.');
+            }
+        })
+        .catch(error => console.error('Fel vid läggning av verktyg i tabellen:', error));
     });
 
     // Funktion för att uppdatera gruppoptions i verktygsformuläret
