@@ -9,27 +9,25 @@
 <body>
 
     <h1>Välkommen till din hemsida</h1>
-    <button onclick="navigateToAddTool()">Lägg till nytt verktyg</button>
-    <div id="addGroupForm">
-        <label for="newGroupName">Ny Grupp:</label>
-        <input type="text" id="newGroupName" placeholder="Ange gruppnamn">
-        <button onclick="läggTillNyGrupp(event)">Lägg till</button>
-    </div>
+    <button onclick="navigateToAddTool()">Skapa Ett Nytt Verktyg</button>
+    <button onclick="navigateToCreateTool()">Lägg Till Nytt Verktyg</button>
+    <button onclick="navigateToCreateGroup()">Skapa Ny Grupp</button>
+    <button onclick="navigateToDeleteGroup()">Radera Grupp</button>
+    <button onclick="navigateToDeleteTool()">Radera Verktyg</button>
     <table id="myTable">
         <thead>
             <tr>
-                <th contenteditable="true"></th>
-                <th contenteditable="true">Typ</th>
-                <th contenteditable="true">Namn</th>
-                <th contenteditable="true">MÄRKE</th>
-                <th contenteditable="true">SENAST</th>                
-                <th contenteditable="true">⌀</th>
-                <th contenteditable="true">C/R/°</th>
-                <th contenteditable="true">ANTAL SKÄR</th>
-                <th contenteditable="true">APMX</th>
-                <th contenteditable="true">RMPX</th>
-                <th contenteditable="true">KOMMENTAR</th>
-                <th>Lägg till</th>
+                <th></th>
+                <th>Typ</th>
+                <th>Namn</th>
+                <th>MÄRKE</th>
+                <th>SENAST</th>                
+                <th>⌀</th>
+                <th>C/R/°</th>
+                <th>ANTAL SKÄR</th>
+                <th>APMX</th>
+                <th>RMPX</th>
+                <th>KOMMENTAR</th>
             </tr>
         </thead>
         <tbody></tbody>

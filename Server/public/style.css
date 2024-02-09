@@ -1,34 +1,68 @@
+/* Grundläggande stilar */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-table, th, td {
-    border: 1px solid black;
-}
-
 th, td {
-    padding: 10px;
-    text-align: center;
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
 }
 
+th {
+    background-color: #f2f2f2;
+}
 
-/* Lägg till ny grupp-formulär */
+/* Formulärstilar */
 #addGroupForm {
     margin-top: 20px;
 }
 
 #addGroupForm label {
-    margin-right: 10px;
+    display: block;
+    margin-bottom: 5px;
 }
 
-#addGroupForm input {
-    padding: 5px;
-    margin-right: 10px;
+#addGroupForm input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
 }
 
 #addGroupForm button {
-    padding: 5px 10px;
-    cursor: pointer;
+    width: 100%;
+}
+
+/* Responsivitet */
+@media (max-width: 768px) {
+    table {
+        overflow-x: auto;
+    }
 }
