@@ -109,19 +109,17 @@ document.addEventListener("DOMContentLoaded", function() {
         updateTable();
     }
 
-
-    // Funktion för att hämta datan från API-endpointen, sortera och uppdatera tabellen
     function updateTable() {
         fetch('/api/sets')
             .then(response => response.json())
             .then(sets => {
                 // Sortera sets baserat på id
                 sets.sort((a, b) => a.id - b.id);
-
+    
                 // Rensa tabellen innan du lägger till nya rader
                 var tableBody = document.querySelector('#selectedToolTable tbody');
                 tableBody.innerHTML = '';
-
+    
                 // Loopa igenom varje set och lägg till det i tabellen
                 sets.forEach(set => {
                     var row = document.createElement('tr');
@@ -136,29 +134,37 @@ document.addEventListener("DOMContentLoaded", function() {
                     var cellComment = document.createElement('td');
                     var cellLastUsed = document.createElement('td');
                     var cellActions = document.createElement('td'); // Skapa cell för raderingsknapp
-
-                    // Lägg till radnummer och verktygsnamn i cellerna
+    
+                    // Lägg till radnummer i cellen
                     cellRow.textContent = set.id;
-                    cellTool.textContent = set.tool.name;
-                    cellBrand.textContent = set.tool.brand;
-                    cellDiameter.textContent = set.tool.diameter;
-                    cellCr.textContent = set.tool.cr;
-                    cellNumCutters.textContent = set.tool.numCutters;
-                    cellApmx.textContent = set.tool.apmx;
-                    cellRmpx.textContent = set.tool.rmpx;
-                    cellComment.textContent = set.tool.comment;
-                    cellLastUsed.textContent = set.tool.lastUsed;
-
+    
+                    // Kontrollera om verktyget är tillgängligt
+                    if (set.tool) {
+                        // Lägg till verktygsnamn och andra egenskaper i cellerna
+                        cellTool.textContent = set.tool.name;
+                        cellBrand.textContent = set.tool.brand;
+                        cellDiameter.textContent = set.tool.diameter;
+                        cellCr.textContent = set.tool.cr;
+                        cellNumCutters.textContent = set.tool.numCutters;
+                        cellApmx.textContent = set.tool.apmx;
+                        cellRmpx.textContent = set.tool.rmpx;
+                        cellComment.textContent = set.tool.comment;
+                        cellLastUsed.textContent = set.tool.lastUsed;
+                    } else {
+                        // Om verktyget inte är tillgängligt, skriv ut ett meddelande
+                        cellTool.textContent = "Verktyget saknas";
+                    }
+    
                     // Skapa raderingsknapp
                     var deleteButton = document.createElement('button');
                     deleteButton.textContent = 'Radera';
                     deleteButton.addEventListener('click', function() {
                         deleteRow(set._id); // Anropa funktionen för att radera raden med set._id
                     });
-
+    
                     // Lägg till raderingsknapp i cellen
                     cellActions.appendChild(deleteButton);
-
+    
                     // Lägg till cellerna i raden
                     row.appendChild(cellRow);
                     row.appendChild(cellTool);
@@ -171,15 +177,14 @@ document.addEventListener("DOMContentLoaded", function() {
                     row.appendChild(cellComment);
                     row.appendChild(cellLastUsed);
                     row.appendChild(cellActions); // Lägg till cellen med raderingsknappen
-
+    
                     // Lägg till raden i tabellens kropp
                     tableBody.appendChild(row);
                 });
             })
             .catch(error => console.error('Fel vid hämtning av set:', error));
     }
-
-
+    
         // Funktion för att radera raden
     function deleteRow(setId) {
         fetch(`/api/deleteSet/${setId}`, {
