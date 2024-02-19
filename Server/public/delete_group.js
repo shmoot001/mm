@@ -48,6 +48,8 @@ function deleteGroup(groupName) {
         if (response.ok) {
             // Gruppen har raderats framgångsrikt, vidta lämpliga åtgärder
             alert('Gruppen har raderats från databasen.');
+            window.location.href = 'index.html';
+
         } else {
             // Det uppstod ett fel när gruppen skulle raderas
             alert('Ett fel uppstod när gruppen skulle raderas från databasen.');

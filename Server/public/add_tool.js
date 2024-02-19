@@ -66,6 +66,8 @@ document.addEventListener("DOMContentLoaded", function() {
             if (data.success) {
                 // Eventuell logik för att hantera lyckad tillägg
                 console.log('Verktyg tillagt framgångsrikt');
+                window.location.href = 'index.html';
+                
             } else {
                 // Eventuell logik för att hantera fel
                 console.error('Det uppstod ett fel när du försökte lägga till verktyget.');
