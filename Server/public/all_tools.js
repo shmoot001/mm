@@ -12,13 +12,20 @@ function fetchAllTools() {
             var groupedTools = {};
 
             data.forEach(tool => {
-                // Kontrollera om gruppen redan finns i objektet, annars skapa en ny array för gruppen
-                if (!groupedTools[tool.group.name]) {
-                    groupedTools[tool.group.name] = [];
-                }
+                // Kontrollera om tool.group är null innan du försöker komma åt name-egenskapen
+                if (tool.group && tool.group.name) {
+                    // Kontrollera om gruppen redan finns i objektet, annars skapa en ny array för gruppen
+                    if (!groupedTools[tool.group.name]) {
+                        groupedTools[tool.group.name] = [];
+                    }
 
-                // Lägg till verktyget i den korrekta gruppen
-                groupedTools[tool.group.name].push(tool);
+                    // Lägg till verktyget i den korrekta gruppen
+                    groupedTools[tool.group.name].push(tool);
+                }
+                // Om tool.group är null eller om name-egenskapen inte finns, ignorera detta verktyg
+                else {
+                    console.error('Verktyget saknar grupp eller namn:', tool);
+                }
             });
 
             // Loopa igenom varje grupp och rendera verktygen under respektive grupp
