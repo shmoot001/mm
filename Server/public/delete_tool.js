@@ -48,6 +48,7 @@ function deleteTool(toolId) {
         if (response.ok) {
             // Verktyget har raderats framgångsrikt, vidta lämpliga åtgärder
             alert('Verktyget har raderats från databasen.');
+            window.location.href = 'index.html';
             
         } else {
             // Det uppstod ett fel när verktyget skulle raderas
