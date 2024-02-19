@@ -3,36 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Din Hemsida</title>
+    <title>Välkommen till din hemsida</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Välkommen till din hemsida</h1>
-    <button onclick="navigateToAddTool()">Skapa Ett Nytt Verktyg</button>
-    <button onclick="navigateToCreateTool()">Lägg Till Nytt Verktyg</button>
-    <button onclick="navigateToCreateGroup()">Skapa Ny Grupp</button>
-    <button onclick="navigateToDeleteGroup()">Radera Grupp</button>
-    <button onclick="navigateToDeleteTool()">Radera Verktyg</button>
-    <table id="myTable">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Typ</th>
-                <th>Namn</th>
-                <th>MÄRKE</th>
-                <th>SENAST</th>                
-                <th>⌀</th>
-                <th>C/R/°</th>
-                <th>ANTAL SKÄR</th>
-                <th>APMX</th>
-                <th>RMPX</th>
-                <th>KOMMENTAR</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">Din Hemsida</h1>
+                <ul class="nav-menu">
+                    <li><a href="all_tools.html">Min Data</a></li>
+                    <li><a href="create_tool.html">Min Tabell</a></li>
+                    <li><a href="add_tool.html">Skapa ett nytt verktyg</a></li>
+                    <li><a href="create_group.html">Skapa en ny grupp</a></li>
+                </ul>
+            </div>
+        </nav>
 
-    <script src="script.js"></script>
+        <div class="hero-content">
+            <div class="container">
+                <h1>Välkommen till din hemsida</h1>
+                <p>Denna hemsida hjälper dig att hantera dina verktyg på ett enkelt och effektivt sätt.</p>
+                <a href="all_tools.html" class="button">Kom igång</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section section1">
+        <div class="container">
+            <h2>Om oss</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et felis vitae turpis varius varius nec in neque.</p>
+        </div>
+    </section>
+
+    <section id="features" class="section section2">
+        <div class="container">
+            <h2>Funktioner</h2>
+            <ul>
+                <li>Hantera dina verktyg</li>
+                <li>Skapa och redigera grupper</li>
+                <li>Enkel navigering</li>
+                <li>Och mycket mer...</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact" class="section section3">
+        <div class="container">
+            <h2>Kontakta oss</h2>
+            <p>Har du frågor eller feedback? Tveka inte att kontakta oss.</p>
+            <a href="#" class="button">Kontakta oss</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Din Hemsida. Alla rättigheter förbehållna.</p>
+        </div>
+    </footer>
+
 </body>
 </html>

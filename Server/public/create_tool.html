@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Välj grupp och verktyg</title>
+    <title>Min tabell</title>
     <link rel="stylesheet" href="create_tool.css">
 </head>
 <body>
-    <h1>Välj grupp och verktyg</h1>
+
+  <header class="header">
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Din Hemsida</h1>
+            <ul class="nav-menu">
+                <li><a href="all_tools.html">Min Data</a></li>
+                <li><a href="create_tool.html">Min Tabell</a></li>
+                <li><a href="add_tool.html">Skapa ett nytt verktyg</a></li>
+                <li><a href="create_group.html">Skapa en ny grupp</a></li>
+            </ul>
+        </div>
+    </nav>
+
     
     <!-- Gruppval formulär -->
     <form id="selectGroupForm">
@@ -59,8 +72,27 @@
 
         <button type="submit">Lägg till</button>
     </form>
-    <input type="hidden" id="selectedRow" name="selectedRow">
 
+    <table id="selectedToolTable">
+        <thead>
+          <tr>
+            <th>Rad</th>
+            <th>Verktyg</th>
+            <th>lastUsed</th>
+            <th>brand</th>
+            <th>diameter</th>
+            <th>cr</th>
+            <th>numCutters</th>
+            <th>apmx</th>
+            <th>rmpx</th>
+            <th>comment</th>
+            <th>Åtgärder</th> <!-- Ny kolumn för raderingsknapp -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rader kommer att fyllas med valt verktyg av JavaScript -->
+        </tbody>
+      </table>
 
     <script src="create_tool.js"></script>
 </body>

@@ -12,7 +12,6 @@ body {
   color: #333;
 }
 
-
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -60,75 +59,28 @@ body {
   font-size: 16px;
 }
 
-/* Formulärstilar */
-form {
-  margin-bottom: 20px;
+/* Stilar för huvudrubrik */
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 20px 0;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input[type="text"],
-select {
+/* Stilar för tabell */
+.group-table {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-/* Tabellstilar */
-table {
-  width: 100%;
+  margin-bottom: 30px;
   border-collapse: collapse;
-  margin-bottom: 20px;
 }
 
-table th,
-table td {
+.group-table th,
+.group-table td {
   padding: 10px;
   border: 1px solid #ddd;
   text-align: left;
 }
 
-table th {
+.group-table th {
   background-color: #007bff;
   color: #fff;
-}
-
-table td:last-child {
-  text-align: center;
-}
-
-/* Meddelandestilar */
-.alert {
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-}
-
-.alert-success {
-  background-color: #d4edda;
-  color: #155724;
-}
-
-.alert-danger {
-  background-color: #f8d7da;
-  color: #721c24;
 }
