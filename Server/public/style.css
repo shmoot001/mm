@@ -1,68 +1,140 @@
-/* Grundläggande stilar */
-body {
-    font-family: Arial, sans-serif;
+/* Reset CSS */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-h1 {
+/* Basstilar för hela sidan */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.section1 {
+    background-image: url('Bilder/bild3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.section2 {
+    background-image: url('Bilder/bild4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.section3 {
+    background-image: url('Bilder/bild5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navbar-stilar */
+.navbar {
+    background-color: #343a40;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    display: inline;
+    margin-left: 20px;
+}
+
+.nav-menu li:first-child {
+    margin-left: 0;
+}
+
+.nav-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Hero-sektion */
+.hero-content {
+    text-align: center;
+    padding: 100px 0;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+/* Sektioner */
+.section {
+    text-align: center;
+    padding: 80px 0;
+}
+
+.section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.section p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: white;
+
+}
+
+/* Footer-stilar */
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px 0;
     text-align: center;
 }
 
-button {
+.footer p {
+    font-size: 14px;
+}
+
+.button {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
+.button:hover {
     background-color: #0056b3;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-/* Formulärstilar */
-#addGroupForm {
-    margin-top: 20px;
-}
-
-#addGroupForm label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-#addGroupForm input[type="text"] {
-    width: 100%;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-}
-
-#addGroupForm button {
-    width: 100%;
-}
-
-/* Responsivitet */
-@media (max-width: 768px) {
-    table {
-        overflow-x: auto;
-    }
 }

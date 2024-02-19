@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Välj grupp och verktyg</title>
-    <link rel="stylesheet" href="create_group.css">
+    <title>Alla Verktyg</title>
+    <link rel="stylesheet" href="all_tools.css"  class="container">
 </head>
 <body>
   <header class="header">
@@ -19,14 +19,8 @@
             </ul>
         </div>
     </nav>
-    <h1>Lägg Till Nytt Verktyg</h1>
-    
-    <form id="addGroupForm">
-        <label for="newGroupName">Ny Grupp:</label>
-        <input type="text" id="newGroupName" placeholder="Ange gruppnamn">
-        <button onclick="läggTillNyGrupp(event)">Lägg till</button>
-    </form>
-
-    <script src="create_group.js"></script>
+    <h1>Alla Verktyg</h1>
+    <div id="toolsContainer" class="container"></div>
+    <script src="all_tools.js"></script>
 </body>
 </html>
