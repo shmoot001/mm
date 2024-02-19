@@ -70,6 +70,7 @@ app.get('/api/sets', async (req, res) => {
 });
 
 
+
 app.get('/api/toolsWithGroups', async (req, res) => {
     try {
         const tools = await Tool.find().populate('group');
@@ -112,23 +113,36 @@ app.get('/api/groups', async (req, res) => {
 });
 
 
-
-
-// API-endpunkt för att radera grupp på servern
-app.delete('/api/groups/:groupName', async (req, res) => {
+// Server.js
+app.delete('/api/groups/:id', async (req, res) => { // Ändra från '/api/deleteGroup' till '/api/groups/:id'
     try {
-        const groupName = req.params.groupName;
-        const deletedGroup = await Group.findOneAndDelete({ name: groupName });
-        if (deletedGroup) {
-            res.status(200).json({ success: true, message: 'Gruppen har raderats.' });
-        } else {
-            res.status(404).json({ success: false, message: 'Gruppen kunde inte hittas.' });
-        }
-    } catch (error) {
-        console.error('Fel vid radering av grupp:', error);
-        res.status(500).json({ success: false, message: 'Ett fel uppstod vid radering av gruppen.' });
+      const group = await Group.findByIdAndDelete(req.params.id); // Använd req.params.id för att hämta gruppid från URL
+      if (!group) return res.status(404).send('Gruppen kunde inte hittas.');
+  
+      res.send('Gruppen har tagits bort.');
+    } catch (err) {
+      res.status(500).send('Ett fel uppstod när gruppen skulle tas bort.');
     }
 });
+
+// DELETE-endpunkt för att radera ett verktyg
+app.delete('/api/deleteTool/:id', async (req, res) => {
+    try {
+        const toolId = req.params.id;
+
+        // Hitta och radera verktyget från databasen baserat på det angivna ID:et
+        const deletedTool = await Tool.findByIdAndDelete(toolId);
+
+        if (!deletedTool) {
+            return res.status(404).send('Verktyget kunde inte hittas.');
+        }
+
+        res.status(200).send('Verktyget har raderats.');
+    } catch (error) {
+        res.status(500).send('Ett fel uppstod vid radering av verktyg:' + error);
+    }
+});
+
 
 
 // Ändra API-endpunkten för att hämta verktyg så att den tar emot en parameter för gruppen
@@ -146,6 +160,18 @@ app.get('/api/tools', async (req, res) => {
     }
 });
 
+app.get('/api/toolsToDelete', async (req, res) => {
+    try {
+        // Hämta alla verktyg från databasen
+        const tools = await Tool.find();
+
+        // Returnera verktygen som JSON-svar
+        res.json(tools);
+    } catch (error) {
+        // Om det uppstår ett fel, skicka ett felmeddelande till klienten
+        res.status(500).json({ message: 'Ett fel uppstod vid hämtning av verktyg', error: error.message });
+    }
+});
 
 
 

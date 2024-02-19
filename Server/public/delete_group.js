@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (selectedGroup) {
             // Skicka en DELETE-förfrågan för att radera den valda gruppen
-            raderaGrupp(selectedGroup);
+            deleteGroup(selectedGroup);
         } else {
             alert("Vänligen välj en grupp att radera.");
         }
@@ -37,19 +37,20 @@ function laddaGrupper() {
 }
 
 // Funktion för att skicka en DELETE-förfrågan för att radera en grupp
-function raderaGrupp(selectedGroup) {
-    fetch('/api/groups/' + selectedGroup, {
-        method: 'DELETE'
+function deleteGroup(groupName) {
+    fetch(`/api/groups/${groupName}`, { // Använd rätt URL för DELETE-endpointen
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
     })
     .then(response => {
         if (response.ok) {
-            alert('Gruppen har raderats.');
-            // Återställ formuläret efter att gruppen har raderats
-            document.getElementById("groupName").value = "";
-            window.location.href = 'index.html';
-
+            // Gruppen har raderats framgångsrikt, vidta lämpliga åtgärder
+            alert('Gruppen har raderats från databasen.');
         } else {
-            alert('Ett fel uppstod vid radering av gruppen.');
+            // Det uppstod ett fel när gruppen skulle raderas
+            alert('Ett fel uppstod när gruppen skulle raderas från databasen.');
         }
     })
     .catch(error => console.error('Fel vid radering av grupp:', error));
