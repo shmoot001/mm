@@ -133,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     var cellRmpx = document.createElement('td');
                     var cellComment = document.createElement('td');
                     var cellLastUsed = document.createElement('td');
+                    var cellSort = document.createElement('td');
                     var cellActions = document.createElement('td'); // Skapa cell för raderingsknapp
     
                     // Lägg till radnummer i cellen
@@ -150,6 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         cellRmpx.textContent = set.tool.rmpx;
                         cellComment.textContent = set.tool.comment;
                         cellLastUsed.textContent = set.tool.lastUsed;
+                        cellSort.textContent = set.tool.sort;
                     } else {
                         // Om verktyget inte är tillgängligt, skriv ut ett meddelande
                         cellTool.textContent = "Verktyget saknas";
@@ -167,6 +169,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
                     // Lägg till cellerna i raden
                     row.appendChild(cellRow);
+                    
                     row.appendChild(cellTool);
                     row.appendChild(cellBrand);
                     row.appendChild(cellDiameter);
@@ -174,8 +177,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     row.appendChild(cellNumCutters);
                     row.appendChild(cellApmx);
                     row.appendChild(cellRmpx);
-                    row.appendChild(cellComment);
+                    row.appendChild(cellSort);
                     row.appendChild(cellLastUsed);
+                    row.appendChild(cellComment);
                     row.appendChild(cellActions); // Lägg till cellen med raderingsknappen
     
                     // Lägg till raden i tabellens kropp
