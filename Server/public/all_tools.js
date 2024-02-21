@@ -44,7 +44,7 @@ function fetchAllTools() {
                 // Skapa tabellrubriker
                 var tableHeader = document.createElement("thead");
                 var headerRow = document.createElement("tr");
-                var headers = ["Verktyg", "Märke", "Senast använd", "Diameter", "C/R/°", "Antal skär", "APMX", "RMPX", "Kommentar"];
+                var headers = ["Beteckning", "Märke", "Diameter", "C/R/°", "Antal skär", "APMX", "RMPX", "Sort", "Senast använd","Kommentar"];
                 headers.forEach(headerText => {
                     var header = document.createElement("th");
                     header.textContent = headerText;
@@ -61,8 +61,7 @@ function fetchAllTools() {
                     toolName.textContent = tool.name;
                     var brand = document.createElement("td");
                     brand.textContent = tool.brand;
-                    var lastUsed = document.createElement("td");
-                    lastUsed.textContent = tool.lastUsed;
+
                     var diameter = document.createElement("td");
                     diameter.textContent = tool.diameter;
                     var cr = document.createElement("td");
@@ -73,18 +72,23 @@ function fetchAllTools() {
                     apmx.textContent = tool.apmx;
                     var rmpx = document.createElement("td");
                     rmpx.textContent = tool.rmpx;
+                    var sort = document.createElement("td");
+                    sort.textContent = tool.sort
+                    var lastUsed = document.createElement("td");
+                    lastUsed.textContent = tool.lastUsed;
                     var comment = document.createElement("td");
                     comment.textContent = tool.comment;
 
                     // Lägg till cellerna i raden
                     row.appendChild(toolName);
                     row.appendChild(brand);
-                    row.appendChild(lastUsed);
                     row.appendChild(diameter);
                     row.appendChild(cr);
                     row.appendChild(numCutters);
                     row.appendChild(apmx);
                     row.appendChild(rmpx);
+                    row.appendChild(sort);
+                    row.appendChild(lastUsed);
                     row.appendChild(comment);
 
                     // Lägg till raden i tabellkroppen

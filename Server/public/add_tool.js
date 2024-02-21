@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         var toolAPMX = document.getElementById("toolAPMX").value;
         var toolRMPX = document.getElementById("toolRMPX").value;
         var toolComment = document.getElementById("toolComment").value;
+        var toolSort = document.getElementById("toolSort").value;
 
         // Skicka en POST-förfrågan till servern för att lägga till det nya verktyget
         sparaNyttVerktyg(selectedGroup, toolName, toolBrand, toolLastUsed, toolDiameter, toolCR, toolNumCutters, toolAPMX, toolRMPX, toolComment);
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Funktion för att spara nytt verktyg i databasen
-    function sparaNyttVerktyg(selectedGroup, toolName, toolBrand, toolLastUsed, toolDiameter, toolCR, toolNumCutters, toolAPMX, toolRMPX, toolComment) {
+    function sparaNyttVerktyg(selectedGroup, toolName, toolBrand, toolLastUsed, toolDiameter, toolCR, toolNumCutters, toolAPMX, toolRMPX, toolSort, toolComment) {
         // Skicka en POST-förfrågan till servern för att lägga till det nya verktyget
         fetch('/api/tools', {
             method: 'POST',
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 numCutters: toolNumCutters,
                 apmx: toolAPMX,
                 rmpx: toolRMPX,
+                sort: toolSort,
                 comment: toolComment
             }),
         })

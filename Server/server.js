@@ -28,6 +28,7 @@ const Tool = mongoose.model('Tool', {
     numCutters : String,
     apmx : String,
     rmpx : String,
+    sort : String,
     comment : String
     // Lägg till andra fält för MÄRKE, SENAST, ⌀, C/R/°, ANTAL SKÄR, APMX, RMPX, KOMMENTAR här
 });
@@ -207,6 +208,7 @@ app.post('/api/tools', async (req, res) => {
             numCutters,
             apmx,
             rmpx,
+            sort,
             comment
         } = req.body;
 
@@ -220,6 +222,7 @@ app.post('/api/tools', async (req, res) => {
             numCutters,
             apmx,
             rmpx,
+            sort,
             comment
         });
 
@@ -274,6 +277,7 @@ app.post('/api/add-tool', async (req, res) => {
             selectedTool.numCutters,
             selectedTool.apmx,
             selectedTool.rmpx,
+            selectedTool.sort,
             selectedTool.comment
         ];
 
